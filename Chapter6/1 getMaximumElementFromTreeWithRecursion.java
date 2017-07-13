@@ -380,11 +380,11 @@ public class BinaryTree {
 		if (node != null) {
 
 			if (node.leftChild != null) {
-				leftMax = getMaximumElementFromTree(node.leftChild);
+				leftMax = getMaximumElementFromTreeWithRecursion(node.leftChild);
 			}
 
 			if (node.rightChild != null) {
-				rightMax = getMaximumElementFromTree(node.rightChild);
+				rightMax = getMaximumElementFromTreeWithRecursion(node.rightChild);
 			}
 
 			if (rightMax >= leftMax) {
