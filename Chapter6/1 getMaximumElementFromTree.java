@@ -374,7 +374,7 @@ public class BinaryTree {
 		return n.leftChild == null && n.rightChild == null;
 	}
 
-	public static int getMaximumElementFromTree(TNode node) {
+	public static int getMaximumElementFromTreeWithRecursion(TNode node) {
 		int max = Integer.MIN_VALUE;
 		int rightMax = -1, leftMax = -1;
 		if (node != null) {
@@ -420,7 +420,7 @@ public class BinaryTree {
 		bt.add(225);
 		bt.add(275);
 
-		System.out.println("Max Element : " + getMaximumElementFromTree(bt.root));
+		System.out.println("Max Element : " + getMaximumElementFromTreeWithRecursion(bt.root));
 	}
 
 }
