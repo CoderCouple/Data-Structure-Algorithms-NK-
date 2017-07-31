@@ -43,9 +43,10 @@ public class ReverseStack {
 		s.add(4);
 		s.add(5);
 
+		System.out.println("===========Original Stack============");
 		printStack(s);
 		reverseStack(s);
-		System.out.println("=======================");
+		System.out.println("===========Reversed Stack============");
 		printStack(s);
 
 	}
