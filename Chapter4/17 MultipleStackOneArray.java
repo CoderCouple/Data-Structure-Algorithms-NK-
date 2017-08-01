@@ -7,7 +7,6 @@ public class MultipleStackOneArray {
 	int array[];
 	int stackCount;
 	int stackCapacity;
-	int top[];
 	int size[];
 
 	public MultipleStackOneArray(int count, int capacity) {
@@ -17,7 +16,6 @@ public class MultipleStackOneArray {
 
 		array = new int[stackCount * stackCapacity];
 		size = new int[stackCount];
-		top = new int[stackCount];
 
 	}
 
