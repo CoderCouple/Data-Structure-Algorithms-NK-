@@ -1,6 +1,6 @@
 package Chapter11;
 
-public class SunOfThreeElements {
+public class SumOfThreeElements {
 
 	public static boolean hasSumOfElements(int array[], int index, int sum, int digit) {
 		if (array.length <= 0)
@@ -9,7 +9,7 @@ public class SunOfThreeElements {
 		if (sum == 0 && digit == 3)
 			return true;
 		else if (sum < 0 || digit > 3)
-			return false;
+			return false;	
 		else if(index>=array.length)
 			return false;
 
