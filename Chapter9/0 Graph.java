@@ -21,6 +21,7 @@ public class Graph {
 
 	public void addVertex(Vertex vertex) {
 		vertexList.add(vertex);
+		vertexCount++;
 	}
 
 	public void addEdge(Vertex source, Vertex destination) {
