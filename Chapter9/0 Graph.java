@@ -1,7 +1,9 @@
 package Chapter9;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 
 public class Graph {
@@ -11,12 +13,14 @@ public class Graph {
 	public int adjacentMatrix[][];
 	public int vertexCount;
 	public Stack theStack;
+	public Queue theQueue;
 
 	public Graph() {
 		vertexList = new ArrayList<Vertex>();
 		adjacentMatrix = new int[maxVertices][maxVertices];
 		vertexCount = 0;
 		theStack = new Stack();
+		theQueue = new LinkedList();
 	}
 
 	public void addVertex(Vertex vertex) {
@@ -37,6 +41,27 @@ public class Graph {
 	public void dfs() {
 		Vertex temp = vertexList.get(0);
 		temp.isVisited = true;
+		theQueue.add(temp);
+		displayVertex(temp);
+		Vertex v2;
+
+		while (!theQueue.isEmpty()) {
+			Vertex v1 = (Vertex) theQueue.remove();
+
+			while ((v2 = getAdjacentUnvisitedVertex(v1)) != null) {
+				v2.isVisited = true;
+				displayVertex(v2);
+				theQueue.add(v2);
+			}
+		}
+
+		for (int i = 0; i < vertexList.size(); i++)
+			vertexList.get(i).isVisited = false;
+	}
+
+	public void bfs() {
+		Vertex temp = vertexList.get(0);
+		temp.isVisited = true;
 		theStack.push(temp);
 		displayVertex(temp);
 
@@ -51,6 +76,9 @@ public class Graph {
 				theStack.push(v);
 			}
 		}
+
+		for (int i = 0; i < vertexList.size(); i++)
+			vertexList.get(i).isVisited = false;
 	}
 
 	public Vertex getAdjacentUnvisitedVertex(Vertex vertex) {
@@ -67,13 +95,13 @@ public class Graph {
 		Vertex v3 = new Vertex("V3");
 		Vertex v4 = new Vertex("V4");
 		Vertex v5 = new Vertex("V5");
-		
+
 		g.addVertex(v1);
 		g.addVertex(v2);
 		g.addVertex(v3);
 		g.addVertex(v4);
 		g.addVertex(v5);
-		
+
 		g.addEdge(v1, v2);
 		g.addEdge(v2, v3);
 		g.addEdge(v3, v4);
@@ -81,8 +109,11 @@ public class Graph {
 		g.addEdge(v1, v4);
 		g.addEdge(v2, v4);
 		g.addEdge(v3, v5);
-		
+
+		System.out.println("========DFS========");
 		g.dfs();
+		System.out.println("========BFS========");
+		g.bfs();
 
 	}
 
